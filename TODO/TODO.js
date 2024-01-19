@@ -86,5 +86,3 @@ const calculate = (param1, callback) => {
 
     return result
 }
-
-async 
