@@ -81,9 +81,8 @@ function deleteTodo(id) {
 }
 
 const calculate = (param1, callback) => {
-    if (typeof callback) {
-        result = callback(result)
-    }
+    result = typeof callback === 'function' ? callback(result) : result;
+
 
     return result
 }
