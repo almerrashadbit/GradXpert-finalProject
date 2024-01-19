@@ -3,24 +3,24 @@ function displayTodo() {
 
     let list = '';
 
-    if (todos) {
-        for (let i = 0; i < todos.length; i++) {
+        if (todos) {
+        todos.forEach(todo => {
             list += `
             <ul class="list-group list-group-horizontal rounded-0 bg-transparent m-2">
                 <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input me-0" value="" id="${todos[i].id}" aria-label="..." onchange="setComplete(this.checked, this.id)" ${todos[i].checked ? 'checked' : ''}>
+                        <input type="checkbox" class="form-check-input me-0" value="" id="${todo.id}" aria-label="..." onchange="setComplete(this.checked, this.id)" ${todo.checked ? 'checked' : ''}>
                     </div>
                 </li>
                 <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-                    <p class="lead fw-normal mb-0">${todos[i].name}</p>
+                    <p class="lead fw-normal mb-0">${todo.name}</p>
                 </li>
                 <li class="list-group-item px-3 py-1 d-flex align-items-center border-0 bg-transparent">
-                    <button type="button" class="btn btn-danger" id="${todos[i].id}" onclick="deleteTodo(this.id)">Delete</button>
+                    <button type="button" class="btn btn-danger" id="${todo.id}" onclick="deleteTodo(this.id)">Delete</button>
                 </li>
             </ul>
-            `
-        }
+            `;
+        });
     }
 
     document.getElementById('list-todo').innerHTML = list;
